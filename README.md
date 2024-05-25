@@ -2,7 +2,7 @@
 
 ## Welcome to Insider Index.
 
-The average stock return rate for U.S. politicians consistently tend to outperform the general market by a significant margin. Insider Index takes the guesswork out of investing and allows users to invest in an index fund automated by the trades of politicians. With an algorithm specifically designed to invest in the most promising politician trades, you can leave the guestwork to the people who know best.
+U.S. politicians' average stock return rates consistently outperform general market trends by a significant margin. Insider Index takes the guesswork out of investing and allows users to invest in an index fund automated by the trades of politicians. With an algorithm specifically designed to invest in the most promising politician trades, you can leave the market research to those who govern it.
 
 Insider Index is currently in development and will be released soon.
 
