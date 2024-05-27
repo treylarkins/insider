@@ -1,13 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const config = require("../config/config");
 const app = express();
 
-const mongo_url = process.env.MONGO_DB_URL;
-const port = process.env.PORT;
+const mongo_url = config.database.url;
+const port = config.server.port;
 
 async function connect() {
   try {
-    mongoose.connect(mongo_url);
+    await mongoose.connect(mongo_url);
     console.log("Connected to MongoDB");
   } catch (error) {
     console.error(error);
