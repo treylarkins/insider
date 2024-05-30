@@ -1,5 +1,5 @@
-const scrapeBuyTrade = require("./scrapeBuyTrade");
+const scrapeTrades = require("./scrapeTrades");
 
 module.exports = {
-  scrapeBuyTrade,
+  ...scrapeTrades,
 };

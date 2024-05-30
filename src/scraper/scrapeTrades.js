@@ -1,9 +1,9 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
 
-const tradeData = [];
+async function scrapeTrades() {
+  const tradeData = [];
 
-async function getTradeData() {
   try {
     const url = "https://www.capitoltrades.com/trades";
     const response = await axios.get(url);
@@ -13,7 +13,7 @@ async function getTradeData() {
       politicianName = $(this).find(".politician-name").text();
       tickerSymbol = $(this).find(".issuer-ticker").text();
       transaction = $(this).find(".tx-type").text();
-      reportingGap = $(this).find(".reporting-gap-tier--2").text();
+      reportingGap = $(this).find(".cell--reporting-gap span").text();
 
       tradeData.push({
         politicianName,
@@ -22,9 +22,12 @@ async function getTradeData() {
         reportingGap,
       });
     });
+    console.log("\nTrades Recieved:");
     console.log(tradeData);
   } catch (error) {
     console.error(error);
   }
+  return tradeData;
 }
-getTradeData();
+
+module.exports = { scrapeTrades };
