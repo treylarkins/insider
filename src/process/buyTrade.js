@@ -1,4 +1,4 @@
-const { model } = require("mongoose");
+const axios = require("axios");
 const trades = require("../scraper");
 
 function isValidTicker(trade) {
@@ -24,7 +24,19 @@ function hasTradeOpprotunity(trade) {
   return true;
 }
 
-async function processTradesToBuy() {
+async function addTradeToDB(trade) {
+  try {
+    const response = await axios.post(
+      `https://localhost:${localhost}/api/trades`,
+      trade
+    );
+    console.log("Trade added to DB: ", trade);
+  } catch (error) {
+    console.error("Error adding trade to DB");
+  }
+}
+
+async function buyTrades() {
   const tradeList = await trades.scrapeTrades();
 
   for (let i = 0; i < tradeList.length; i++) {
@@ -35,5 +47,5 @@ async function processTradesToBuy() {
 }
 
 module.exports = {
-  processTradesToBuy,
+  buyTrades,
 };

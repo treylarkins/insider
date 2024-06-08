@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const config = require("../../config/config");
-const mongo_url = config.database.url;
 
-async function connectToDatabase() {
+function connectToDatabase() {
   try {
-    await mongoose.connect(mongo_url);
+    //mongoose.connect(process.env.MONGO_DB_URL);
+    mongoose.connect(config.database.url);
     console.log("Connected to MongoDB");
   } catch (error) {
     console.error(error);

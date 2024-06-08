@@ -27,3 +27,4 @@ This application aggregates publicly available data on the stock trades of U.S. 
 - Track stock trades of U.S. politicians
 - Automate personal investing
 - Access validity of trading information
+- Restful API with CRUD operations
