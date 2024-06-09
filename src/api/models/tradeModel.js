@@ -1,3 +1,4 @@
+const { Double } = require("mongodb");
 const mongoose = require("mongoose");
 
 const TradeSchema = new mongoose.Schema(
@@ -10,6 +11,16 @@ const TradeSchema = new mongoose.Schema(
     stock_ticker: {
       type: String,
       required: true,
+    },
+
+    open_price: {
+      type: Double,
+      required: true,
+    },
+
+    close_price: {
+      type: Double,
+      required: false,
     },
 
     status: {
