@@ -19,7 +19,7 @@ const getTrades = async (req, res) => {
   try {
     const allTrades = await Trade.find();
     if (allTrades.length === 0) {
-      res.status(404).json({ message: "no trades found" });
+      return res.status(404).json({ message: "no trades found" });
     }
     res.status(200).json(allTrades);
   } catch (error) {
@@ -29,12 +29,14 @@ const getTrades = async (req, res) => {
 
 const getTradesByStatus = async (req, res) => {
   try {
-    const { statusFilter } = req.query;
+    const statusFilter = req.params.status;
 
     const filteredTrades = await Trade.find({ status: statusFilter });
 
     if (filteredTrades.length === 0) {
-      res.status(404).json({ message: `no ${statusFilter} trades found` });
+      return res
+        .status(404)
+        .json({ message: `no ${statusFilter} trades found` });
     }
     res.status(200).json(filteredTrades);
   } catch (error) {

@@ -11,4 +11,4 @@ app.listen(PORT, () => {
 
 database.connectToDatabase();
 
-process.processTradesToBuy();
+process.buyTrades();

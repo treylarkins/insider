@@ -14,12 +14,12 @@ const TradeSchema = new mongoose.Schema(
     },
 
     open_price: {
-      type: Double,
+      type: Number,
       required: true,
     },
 
     close_price: {
-      type: Double,
+      type: Number,
       required: false,
     },
 
